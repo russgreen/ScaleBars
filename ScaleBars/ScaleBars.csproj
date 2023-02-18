@@ -6,7 +6,7 @@
 		<Platforms>x64</Platforms>
 		<Description>Automatic titleblock scalebar switcher</Description>
 		<Copyright>Copyright © 2023 Russ Green. All rights Reserved</Copyright>
-		<Version>0.0.1</Version>
+		<Version>1.0.1</Version>
 		<LangVersion>latest</LangVersion>
 		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
