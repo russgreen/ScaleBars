@@ -71,7 +71,7 @@ internal static class ScaleBars
         string returnValue = string.Empty;
         switch (scale ?? "")
         {
-            case "As indicated":
+            case "Asindicated":
                 returnValue = "As indicated";
                 break;
 
