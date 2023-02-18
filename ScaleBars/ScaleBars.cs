@@ -16,6 +16,11 @@ internal static class ScaleBars
         {
             var scale = ParseScale(sheet.get_Parameter(BuiltInParameter.SHEET_SCALE).AsString());
 
+            if(scale == "As indicated")
+            {
+                return;
+            }
+
             var paramList = new List<Parameter>();
             ParameterSet paramSet = tb.Parameters;
             IEnumerator enumerator = paramSet.GetEnumerator();
