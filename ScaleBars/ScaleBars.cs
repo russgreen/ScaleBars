@@ -31,11 +31,7 @@ internal static class ScaleBars
                     // check to see if the scale bar needs to be changed.
                     if (param.Definition.Name == scale)
                     {
-                        var s = param.AsValueString();
-                        var s1 = param.AsString();
-                        var i = param.AsInteger();  
-
-                        if (param.AsValueString() == "Yes")
+                        if (param.AsInteger() == 1)
                         {
                             return;
                         }

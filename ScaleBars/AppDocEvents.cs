@@ -61,9 +61,23 @@ internal class AppDocEvents
 
             if (doc != null)
             {
-                if (doc.ActiveView.ViewType == ViewType.DrawingSheet)
+                var view = doc.ActiveView;
+
+                if (view.ViewType == ViewType.DrawingSheet)
                 {
-                    ScaleBars.SetScaleBars((ViewSheet)doc.ActiveView, doc);
+                    ViewSheet sheet = view as ViewSheet;
+
+                    if (sheet.GetAllPlacedViews().Count == 0)
+                    {
+                        return;
+                    }
+
+                    ScaleBars.SetScaleBars(sheet, doc);
+                }
+
+                if (App.CachedUiApp.ActiveUIDocument.Document.ActiveView.ViewType == ViewType.DrawingSheet)
+                {
+
                 }
 
             }
