@@ -1,5 +1,11 @@
 # ScaleBars
 
+![Revit Version](https://img.shields.io/badge/Revit%20Version-2021_--_2023-blue.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg)
+![.NET](https://img.shields.io/badge/.NET-4.8-blue.svg)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/russgreen/scalebars)
+
 A simple Revit addin that demonstates using the idle event to change a titleblock parameter in order to change the visibility of different scale bars.
 
 Assumes the titleblock family has instance yes/no parameters that control the visibity of different scale bars.
