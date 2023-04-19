@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<Configurations>Debug R21;Debug R22;Debug R23</Configurations>
-		<Configurations>$(Configurations);Release R21;Release R22;Release R23</Configurations>
+		<Configurations>Debug R21;Debug R22;Debug R23;Debug R24</Configurations>
+		<Configurations>$(Configurations);Release R21;Release R22;Release R23;Release R24</Configurations>
 		<Platforms>x64</Platforms>
 		<Description>Automatic titleblock scalebar switcher</Description>
 		<Copyright>Copyright © 2023 Russ Green. All rights Reserved</Copyright>
@@ -35,6 +35,12 @@
 		<RevitVersion>2023</RevitVersion>
 		<DefineConstants>$(DefineConstants);REVIT2023</DefineConstants>
 	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R24'))">
+		<TargetFramework>net48</TargetFramework>
+		<RevitVersion>2023</RevitVersion>
+		<DefineConstants>$(DefineConstants);REVIT2024</DefineConstants>
+	</PropertyGroup>	
+	
 
 	<PropertyGroup>
 		<!-- Define handy symbols to use in the code in order to accommodate different Revit versions,
