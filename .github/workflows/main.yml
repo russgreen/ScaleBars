@@ -13,7 +13,7 @@ jobs:
   
     strategy:
       matrix:
-        configuration: ['Release R24']
+        configuration: ["Release R23"]
     
     steps:
     - name: Checkout
@@ -32,6 +32,9 @@ jobs:
       run: nuget restore ScaleBars.sln -Verbosity detailed
       
     - name: Build the solution
-      run: msbuild ScaleBars.sln /p:Configuration="Release R24"
+      run: |
+          for configuration in "${{ matrix.configuration }}"; do
+            msbuild ScaleBars.sln "/p:Configuration=${configuration}" -verbosity:quiet
+          done
       
       
