@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+  
+    strategy:
+      matrix:
+        configuration: ["Release R21","Release R22", "Release R23","Release R24"]
+    
+    runs-on: windows-latest  
+    
+    env:
+      Solution_Name: ScaleBars.sln 
+      
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3.5.2
+      
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.2.0
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+      
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+        
+    - name: Restore NuGet Packages
+      run: nuget restore $env:Solution_Name -Verbosity detailed
+        
+    - name: Build the solution
+      run: |
+          for configuration in "${{ matrix.configuration }}"; do
+            msbuild $env:Solution_Name "/p:Configuration=$$env:configuration" -verbosity:quiet
+          done
+      
+      
