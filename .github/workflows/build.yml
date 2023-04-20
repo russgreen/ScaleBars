@@ -12,8 +12,7 @@ jobs:
   
     strategy:
       matrix:
-        configuration: ["ReleaseR21"]
-        #configuration: ["ReleaseR21","ReleaseR22", "ReleaseR23","ReleaseR24"]
+        configuration: ["ReleaseR21","ReleaseR22", "ReleaseR23","ReleaseR24"]
         
     runs-on: windows-latest  
     
