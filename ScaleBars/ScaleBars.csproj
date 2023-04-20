@@ -9,6 +9,7 @@
 		<Version>1.0.1</Version>
 		<LangVersion>latest</LangVersion>
 		<NeutralLanguage>en</NeutralLanguage>
+		<UseWPF>true</UseWPF>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$(Configuration.Contains('Debug'))">
