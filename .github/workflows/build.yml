@@ -42,9 +42,6 @@ jobs:
      
     - name: Build the solution
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-          for configuration in "${{ matrix.configuration }}"; do
-            msbuild $env:SOLUTION_FILE_PATH "/p:Configuration=$$env:configuration" -verbosity:quiet
-          done
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
       
       
