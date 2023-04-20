@@ -32,13 +32,13 @@ jobs:
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
       
-    #- name: Restore the application
-    #  run: msbuild $env:SOLUTION_FILE_PATH /t:Restore /p:Configuration=$env:Configuration
-    #  env:
-    #    Configuration: ${{ matrix.configuration }}
-    - name: Restore NuGet packages
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore ${{env.SOLUTION_FILE_PATH}} 
+    - name: Restore the application
+      run: msbuild $env:SOLUTION_FILE_PATH /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+    #- name: Restore NuGet packages
+    #  working-directory: ${{env.GITHUB_WORKSPACE}}
+    #  run: nuget restore ${{env.SOLUTION_FILE_PATH}} 
      
     - name: Build the solution
       working-directory: ${{env.GITHUB_WORKSPACE}}
