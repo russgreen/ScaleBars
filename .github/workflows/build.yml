@@ -48,7 +48,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Release
-        path: /bin
+        path: ScaleBars\Bin\
         # Customize Artifact Retention Period
         retention-days: 1
       
