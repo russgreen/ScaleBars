@@ -1,13 +1,12 @@
 name: Installer
 
-on: [workflow_dispatch]
+on: [workflow_call]
 
 jobs:
 
   installer:
-  
+    
     runs-on: windows-latest
-    name: Build AIP
     
     steps:
     - name: Checkout
