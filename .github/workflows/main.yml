@@ -22,13 +22,21 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
       
+    - name: Setup .NET Framework
+      uses: microsoft/setup-dotnet@v1
+      with:
+          dotnet-version: '4.8.x'
+      
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.2.0
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
 
     - name: Restore NuGet Packages
       run: nuget restore ScaleBars.sln -Verbosity detailed
       
     - name: Build the solution
-      run: msbuild ScaleBars.sln /p:Configuration=$configuration
+      run: msbuild ScaleBars.sln /p:Configuration="Release R24"
       
       
