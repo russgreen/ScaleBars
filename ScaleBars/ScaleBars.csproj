@@ -38,10 +38,9 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="$(Configuration.Contains('R24'))">
 		<TargetFramework>net48</TargetFramework>
-		<RevitVersion>2023</RevitVersion>
+		<RevitVersion>2024</RevitVersion>
 		<DefineConstants>$(DefineConstants);REVIT2024</DefineConstants>
-	</PropertyGroup>	
-	
+	</PropertyGroup>
 
 	<PropertyGroup>
 		<!-- Define handy symbols to use in the code in order to accommodate different Revit versions,
@@ -56,33 +55,7 @@
 		<!-- <OutputPath>bin\$(Configuration)</OutputPath> -->
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 	</PropertyGroup>
-	
-	<!--<PropertyGroup>
-		<Path_DLL_API>..\..\RevitAPI\</Path_DLL_API>
-	</PropertyGroup>	
-
-	<ItemGroup>
-		<Reference Include="RevitAPI">
-			<HintPath>$(Path_DLL_API)\$(RevitVersion)\RevitAPI.dll</HintPath>
-			<EmbedInteropTypes>false</EmbedInteropTypes>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="RevitAPIUI">
-			<HintPath>$(Path_DLL_API)\$(RevitVersion)\RevitAPIUI.dll</HintPath>
-			<EmbedInteropTypes>false</EmbedInteropTypes>
-			<Private>false</Private>
-		</Reference>	
-    <Reference Include="AdWindows">
-			<HintPath>$(Path_DLL_API)\$(RevitVersion)\AdWindows.dll</HintPath>
-			<EmbedInteropTypes>false</EmbedInteropTypes>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="UIFramework">
-		  <HintPath>$(Path_DLL_API)\$(RevitVersion)\UIFramework.dll</HintPath>
-		  <EmbedInteropTypes>false</EmbedInteropTypes>
-		  <Private>false</Private>
-		</Reference>
-	</ItemGroup>-->
+		
 
 	<ItemGroup>
 		<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*" />
