@@ -1,0 +1,33 @@
+name: Installer
+
+on: [workflow_dispatch]
+
+jobs:
+  advinst-aip-build-demo:
+    runs-on: windows-latest
+    name: Build AIP
+    
+    env:
+      SOLUTION_FILE_PATH: ScaleBars.sln 
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3.5.2
+      
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.1
+    
+    - name: Advanced Installer Tool
+      # You may pin to the exact commit or the version.
+      # uses: Caphyon/advinst-github-action@784f9ea25045e7458e8d08391703e7c5f17c5be4
+      uses: Caphyon/advinst-github-action@v1.0
+      with:
+        advinst-enable-automation: 'true'
+        aip-path: ${{ github.workspace }}\Installer\ScaleBars.aip
+        aip-output-dir:  ${{ github.workspace }}\Installer\ScaleBars-SetupFiles
+
+    - name: Publish setup artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: setup
+        path: ${{ github.workspace }}\Installer\ScaleBars-SetupFiles\ScaleBars.msi
