@@ -15,10 +15,12 @@
 	<PropertyGroup Condition="$(Configuration.Contains('Debug'))">
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>full</DebugType>
+		<DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
 	</PropertyGroup>
 	<PropertyGroup Condition="$(Configuration.Contains('Release'))">
 		<Optimize>true</Optimize>
 		<DebugType>none</DebugType>
+		<DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$(Configuration.Contains('R21'))">
@@ -72,13 +74,6 @@
 	</ItemGroup>
 	-->	
 
-	<!--
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.4.0" />
-  </ItemGroup>
-  -->
-
 	<ItemGroup>
 		<None Update="ScaleBars.addin">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -86,7 +81,7 @@
 	</ItemGroup>
 
 	<!-- Build debug manifest at build time -->
-	<Target Name="CreateAddinManifest" AfterTargets="AfterBuild">
+	<Target Name="CreateAddinManifest" AfterTargets="AfterBuild" Condition="$(Configuration.Contains('Debug'))">
 		<ItemGroup>
 			<AddinManifest Include="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ScaleBars.addin" />
 		</ItemGroup>
@@ -96,7 +91,7 @@
 	</Target>
 	
 	<!-- Clean up debug manifest -->
-	<Target Name="CleanupAddinManifest" AfterTargets="AfterClean">
+	<Target Name="CleanupAddinManifest" AfterTargets="AfterClean" Condition="$(Configuration.Contains('Debug'))">
 		<Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ScaleBars.addin" />
 	</Target>
 
