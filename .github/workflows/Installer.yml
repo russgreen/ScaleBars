@@ -3,19 +3,23 @@ name: Installer
 on: [workflow_dispatch]
 
 jobs:
-  advinst-aip-build-demo:
+
+  installer:
+  
     runs-on: windows-latest
     name: Build AIP
     
-    env:
-      SOLUTION_FILE_PATH: ScaleBars.sln 
-
     steps:
     - name: Checkout
       uses: actions/checkout@v3.5.2
       
     - name: Download a Build Artifact
       uses: actions/download-artifact@v2.1.1
+      with:
+        # Artifact name
+        name: Release
+        # Destination path
+        path: ScaleBars\Bin\
     
     - name: Advanced Installer Tool
       # You may pin to the exact commit or the version.
