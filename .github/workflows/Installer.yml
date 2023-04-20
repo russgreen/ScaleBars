@@ -24,7 +24,6 @@ jobs:
       with:
         advinst-enable-automation: 'true'
         aip-path: ${{ github.workspace }}\Installer\ScaleBars.aip
-        aip-output-dir:  ${{ github.workspace }}\Installer\ScaleBars-SetupFiles
 
     - name: Publish setup artifact
       uses: actions/upload-artifact@v2
