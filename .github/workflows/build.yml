@@ -1,8 +1,8 @@
 name: Build
 
 on:
-  push:
-    branches: [ "main" ]
+#  push:
+#    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -52,35 +52,5 @@ jobs:
         # Customize Artifact Retention Period
         retention-days: 1
       
-  installer:
-  
-    runs-on: windows-latest
-    name: Build AIP
-    
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3.5.2
-      
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2.1.1
-      with:
-        # Artifact name
-        name: Release
-        # Destination path
-        path: ScaleBars\Bin\
-    
-    - name: Advanced Installer Tool
-      # You may pin to the exact commit or the version.
-      # uses: Caphyon/advinst-github-action@784f9ea25045e7458e8d08391703e7c5f17c5be4
-      uses: Caphyon/advinst-github-action@v1.0
-      with:
-        advinst-enable-automation: 'true'
-        aip-path: ${{ github.workspace }}\Installer\ScaleBars.aip
-
-    - name: Publish setup artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: setup
-        path: ${{ github.workspace }}\Installer\ScaleBars-SetupFiles\ScaleBars.msi
       
       
