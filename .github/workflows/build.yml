@@ -52,4 +52,5 @@ jobs:
       
   installer:
     uses: ./.github/workflows/Installer.yml
+    needs: build
     
