@@ -27,9 +27,9 @@ jobs:
       uses: NuGet/setup-nuget@v1.2.0
 
     - name: Restore NuGet Packages
-      run: nuget restore ScaleBars.sln
+      run: nuget restore ScaleBars.sln /p:Configuration=Release R24
       
     - name: Build the solution
-      run: msbuild ScaleBars.sln
+      run: msbuild ScaleBars.sln /p:Configuration=Release R24
       
       
