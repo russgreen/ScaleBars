@@ -14,7 +14,7 @@ jobs:
       matrix:
         configuration: ["Release R21"]
         #configuration: ["Release R21","Release R22", "Release R23","Release R24"]
-    
+        
     runs-on: windows-latest  
     
     env:
@@ -34,17 +34,19 @@ jobs:
       run: cd $GITHUB_WORKSPACE
       
     - name: Restore the application
-      run: msbuild $env:SOLUTION_FILE_PATH /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: dotnet restore --configuration ${{ matrix.configuration }}
+      #run: msbuild $env:SOLUTION_FILE_PATH /t:Restore /p:Configuration=$env:Configuration
+      #env:
+      #  Configuration: ${{ matrix.configuration }}
     #- name: Restore NuGet packages
     #  working-directory: ${{env.GITHUB_WORKSPACE}}
     #  run: nuget restore ${{env.SOLUTION_FILE_PATH}} 
      
     - name: Build the solution
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: dotnet build --configuration ${{ matrix.configuration }} ${{env.SOLUTION_FILE_PATH}}
+      #run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+      #env:
+      #  Configuration: ${{ matrix.configuration }}
       
       
