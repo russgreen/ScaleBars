@@ -36,9 +36,6 @@ jobs:
       run: msbuild $env:SOLUTION_FILE_PATH /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
-    #- name: Restore NuGet packages
-    #  working-directory: ${{env.GITHUB_WORKSPACE}}
-    #  run: nuget restore ${{env.SOLUTION_FILE_PATH}} 
      
     - name: Build the solution
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -46,5 +43,13 @@ jobs:
       run: msbuild /m /p:Configuration=${{env.Configuration}} ${{env.SOLUTION_FILE_PATH}}
       env:
         Configuration: ${{ matrix.configuration }}
+        
+    - name: Upload production-ready build files
+      uses: actions/upload-artifact@v3
+      with:
+        name: Release
+        path: /bin
+        # Customize Artifact Retention Period
+        retention-days: 1
       
       
