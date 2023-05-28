@@ -16,7 +16,7 @@ internal static class ScaleBars
         {
             var scale = ParseScale(sheet.get_Parameter(BuiltInParameter.SHEET_SCALE).AsString());
 
-            if(scale == "As indicated")
+            if (scale == "As indicated" || scale == "NTS")
             {
                 return;
             }
@@ -27,11 +27,13 @@ internal static class ScaleBars
             enumerator.Reset();
 
             while (enumerator.MoveNext())
+            {
                 paramList.Add(enumerator.Current as Parameter);
+            }
 
             foreach (Parameter param in paramList)
             {
-                if (param.Definition.Name.StartsWith("1-") == true | param.Definition.Name.StartsWith("NTS") == true)
+                if (param.Definition.Name.StartsWith("1-") == true)
                 {
                     // check to see if the scale bar needs to be changed.
                     if (param.Definition.Name == scale)
@@ -46,7 +48,7 @@ internal static class ScaleBars
 
             foreach (Parameter param in paramList)
             {
-                if (param.Definition.Name.StartsWith("1-") == true | param.Definition.Name.StartsWith("NTS") == true)
+                if (param.Definition.Name.StartsWith("1-") == true)
                 {
                     using (var t = new Transaction(doc, "Modify Scale Parameter"))
                     {
@@ -69,7 +71,7 @@ internal static class ScaleBars
         scale = regWhitespace.Replace(scale, string.Empty);
 
         string returnValue = string.Empty;
-        switch (scale ?? "")
+        switch (scale.Trim() ?? "")
         {
             case "Asindicated":
                 returnValue = "As indicated";
