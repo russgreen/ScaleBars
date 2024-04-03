@@ -4,7 +4,7 @@
 
 
 
-![GitHub last commit](https://img.shields.io/github/last-commit/russgreen/scalebars)
+![GitHub last commit](https://img.shields.io/github/last-commit/russgreen/scalebars) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/russgreen/Scalebars/total)
 
 A simple Revit addin that demonstates using the idle event to change a titleblock parameter in order to change the visibility of different scale bars.
 

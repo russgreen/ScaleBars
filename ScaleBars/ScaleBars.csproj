@@ -60,25 +60,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!--<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*" />
-		<PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*" />-->
+		<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*-*" />
+		<PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*-*" />
 		<!--<PackageReference Include="Nice3point.Revit.Extensions" Version="$(RevitVersion).*"/>-->
 	</ItemGroup>
-
-	<Choose>
-		<When Condition="$(Configuration.Contains('R25'))">
-			<ItemGroup>
-				<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*-preview.*" />
-				<PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*-preview.*" />
-			</ItemGroup>
-		</When>
-		<Otherwise>
-			<ItemGroup>
-				<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*-*" />
-				<PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*-*" />
-			</ItemGroup>
-		</Otherwise>
-	</Choose>
 
 	<!--
 	<ItemGroup>
