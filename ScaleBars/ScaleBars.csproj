@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Configurations>Debug R21;Debug R22;Debug R23;Debug R24;Debug R25;Debug R26</Configurations>
-		<Configurations>$(Configurations);Release R21;Release R22;Release R23;Release R24;Release R25;Release R26</Configurations>
+		<Configurations>Debug R21;Debug R22;Debug R23;Debug R24;Debug R25;Debug R26;Debug R27</Configurations>
+		<Configurations>$(Configurations);Release R21;Release R22;Release R23;Release R24;Release R25;Release R26;Release R27</Configurations>
 		<Platforms>x64</Platforms>
 		<Description>Automatic titleblock scalebar switcher</Description>
-		<Copyright>Copyright © 2023 Russ Green. All rights Reserved</Copyright>
-		<Version>1.1.0</Version>
+		<Copyright>Copyright © 2026 Russ Green. All rights Reserved</Copyright>
+		<Version>1.2.0</Version>
 		<PlatformTarget>x64</PlatformTarget>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<LangVersion>latest</LangVersion>
@@ -64,6 +64,13 @@
 		<DefineConstants>$(DefineConstants);REVIT2026</DefineConstants>
 		<DefineConstants>$(DefineConstants);REVIT2021_OR_GREATER;REVIT2022_OR_GREATER;REVIT2023_OR_GREATER;REVIT2024_OR_GREATER;REVIT2025_OR_GREATER;REVIT2026_OR_GREATER</DefineConstants>
 	</PropertyGroup>	
+	<PropertyGroup Condition="$(Configuration.Contains('R27'))">
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<RevitVersion>2027</RevitVersion>
+		<DefineConstants>$(DefineConstants);REVIT2027</DefineConstants>
+		<DefineConstants>$(DefineConstants);REVIT2021_OR_GREATER;REVIT2022_OR_GREATER;REVIT2023_OR_GREATER;REVIT2024_OR_GREATER;REVIT2025_OR_GREATER;REVIT2026_OR_GREATER;REVIT2027_OR_GREATER</DefineConstants>
+	</PropertyGroup>	
+	
 
 	<ItemGroup>
 		<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*" />

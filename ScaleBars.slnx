@@ -1,0 +1,62 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="DebugR21" />
+    <BuildType Name="DebugR22" />
+    <BuildType Name="DebugR23" />
+    <BuildType Name="DebugR24" />
+    <BuildType Name="DebugR25" />
+    <BuildType Name="DebugR26" />
+    <BuildType Name="DebugR27" />
+    <BuildType Name="ReleaseR21" />
+    <BuildType Name="ReleaseR22" />
+    <BuildType Name="ReleaseR23" />
+    <BuildType Name="ReleaseR24" />
+    <BuildType Name="ReleaseR25" />
+    <BuildType Name="ReleaseR26" />
+    <BuildType Name="ReleaseR27" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Workflows/">
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".github/workflows/Installer.yml" />
+  </Folder>
+  <Project Path="build/_build.csproj">
+    <BuildType Solution="DebugR21|*" Project="Debug" />
+    <BuildType Solution="DebugR22|*" Project="Debug" />
+    <BuildType Solution="DebugR23|*" Project="Debug" />
+    <BuildType Solution="DebugR24|*" Project="Debug" />
+    <BuildType Solution="DebugR25|*" Project="Debug" />
+    <BuildType Solution="DebugR26|*" Project="Debug" />
+    <BuildType Solution="DebugR27|*" Project="Debug" />
+    <BuildType Solution="ReleaseR21|*" Project="Release" />
+    <BuildType Solution="ReleaseR22|*" Project="Release" />
+    <BuildType Solution="ReleaseR23|*" Project="Release" />
+    <BuildType Solution="ReleaseR24|*" Project="Release" />
+    <BuildType Solution="ReleaseR25|*" Project="Release" />
+    <BuildType Solution="ReleaseR26|*" Project="Release" />
+    <BuildType Solution="ReleaseR27|*" Project="Release" />
+    <Build Project="false" />
+  </Project>
+  <Project Path="ScaleBars/ScaleBars.csproj">
+    <BuildType Solution="DebugR21|*" Project="Debug R21" />
+    <BuildType Solution="DebugR22|*" Project="Debug R22" />
+    <BuildType Solution="DebugR23|*" Project="Debug R23" />
+    <BuildType Solution="DebugR24|*" Project="Debug R24" />
+    <BuildType Solution="DebugR25|*" Project="Debug R25" />
+    <BuildType Solution="DebugR26|*" Project="Debug R26" />
+    <BuildType Solution="DebugR27|*" Project="Debug R27" />
+    <BuildType Solution="ReleaseR21|*" Project="Release R21" />
+    <BuildType Solution="ReleaseR22|*" Project="Release R22" />
+    <BuildType Solution="ReleaseR23|*" Project="Release R23" />
+    <BuildType Solution="ReleaseR24|*" Project="Release R24" />
+    <BuildType Solution="ReleaseR25|*" Project="Release R25" />
+    <BuildType Solution="ReleaseR26|*" Project="Release R26" />
+    <BuildType Solution="ReleaseR27|*" Project="Release R27" />
+    <Platform Project="x64" />
+  </Project>
+</Solution>
